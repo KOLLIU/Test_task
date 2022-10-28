@@ -37,8 +37,10 @@ class Skype:
         self.full_skype = skype
         start = skype.find("skype:") + 6
         stop = skype.find("?call") if skype.find("?call") > -1 else len(skype)
-        print(skype[:start:] + symbol*3 + skype[stop::])
+        self.skype = skype[:start:] + symbol*3 + skype[stop::]
 
+    def __str__(self):
+        return self.skype
 
-# Skype("skype:alex.maxim")
-# Skype("<a href=\"skype:alex.max?call\">skype</a>")
+# print(Skype("skype:alex.maxim"))
+# print(Skype("<a href=\"skype:alex.max?call\">skype</a>"))
